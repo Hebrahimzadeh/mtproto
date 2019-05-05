@@ -104,7 +104,7 @@ if [[ ${OS} =~ ^Ubuntu$|^Debian$ ]];then
 	clear
 	iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport $uport -j ACCEPT
 	iptables -I INPUT -m state --state NEW -m udp -p udp --dport $uport -j ACCEPT
-	iptables-save > /etc/iptables.up.rules
+	iptables-save >> /etc/iptables.up.rules
 	firewall-cmd --permanent --add-port=${uport}/tcp
 	firewall-cmd --permanent --add-port=${uport}/udp
         firewall-cmd --reload
